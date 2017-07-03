@@ -14,7 +14,9 @@ class GeneroController extends Controller {
 	public function index()
 	{
 		//
-		return view('genero.index');
+
+		$genero = \App\Genero::All();
+		return view('genero.index',compact('genero'));
 	}
 
 	/**

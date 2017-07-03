@@ -6,8 +6,7 @@ class Genero extends Model {
 
 	protected $table = "genero";
 	protected $primaryKey = "COD";
-
 	
 	protected $fillable = ['NOMBRE'];
- public $timestamps = false;
+ 	public $timestamps = false;
 }
