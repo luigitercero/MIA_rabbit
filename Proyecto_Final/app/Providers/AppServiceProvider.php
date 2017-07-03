@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(\Way\Generators\GeneratorsServiceProvider::class);
         $this->app->register(\Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class);
     }
+
+      if ($this->app->environment() == 'local') {
+        $this->app->register('Appzcoder\CrudGenerator\CrudGeneratorServiceProvider');
+    }
         //
     }
 }

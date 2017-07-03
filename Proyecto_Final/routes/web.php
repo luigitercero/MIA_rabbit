@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('genero', 'GeneroController');
+Route::resource('admin/posts', 'Admin\\PostsController');

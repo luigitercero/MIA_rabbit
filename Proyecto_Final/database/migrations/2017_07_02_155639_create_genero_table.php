@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCONTENIDOSTable extends Migration {
+class CreateGeneroTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,10 @@ class CreateCONTENIDOSTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('CONTENIDO', function(Blueprint $table)
+		Schema::create('genero', function(Blueprint $table)
 		{
-			$table->dateTime('CREATED_AT')->nullable();
 			$table->integer('COD')->primary('primary');
-			$table->integer('CONTENIDO_COD')->nullable();
-			$table->string('char', 12)->nullable();
-			$table->dateTime('UPDATED_AT')->nullable();
+			$table->char('NOMBRE', 15);
 		});
 	}
 
@@ -30,7 +27,7 @@ class CreateCONTENIDOSTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('CONTENIDOS');
+		Schema::drop('genero');
 	}
 
 }
