@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
-
+Route::resource('usuario', 'UsuarioController');
+Route::resource('roll', 'RollController');
 Route::resource('genero', 'GeneroController');
 Route::resource('admin/posts', 'Admin\\PostsController');
