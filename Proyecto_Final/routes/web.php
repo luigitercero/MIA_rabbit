@@ -12,8 +12,29 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
-
+Route::resource('usuario', 'UsuarioController'); //index, create,show, delete,store,edit
+Route::resource('roll', 'RollController');
 Route::resource('genero', 'GeneroController');
+Auth::routes();
+Route::resource('log','LogController');
 Route::resource('admin/posts', 'Admin\\PostsController');
+Route::get('logout','LogController@logout');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

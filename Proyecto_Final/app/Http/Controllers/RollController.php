@@ -2,14 +2,15 @@
 
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use App\Genero;
+use App\Roll;
 use Session;
 use Redirect;
-class GeneroController extends Controller {
+
+class RollController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /genero
+	 * GET /roll
 	 *
 	 * @return Response
 	 */
@@ -17,46 +18,47 @@ class GeneroController extends Controller {
 	{
 		//
 
-		$genero = Genero::All();
-		return view('genero.index',compact('genero'));
+		$roll = Roll::All();
+		return view('roll.index',compact('roll'));
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /genero/create
+	 * GET /roll/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		return view('genero.create');
+		
+		return view('roll.create');
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /genero
+	 * POST /roll
 	 *
 	 * @return Response
 	 */
 	public function store(Request $request)
 	{
 		//
-		$genero = new Genero;
-		$genero->nombre = $request->nombre;
-		$genero->save();
+		$roll = new Roll;
+		$roll->nombre = $request->nombre;
+		$roll->save();
 		/*
-	\App\Genero::create([
+	\App\Roll::create([
 		'NOMBRE'=>$request['name']
 		]);
 		*/
-		Session::flash('message',"se creo un nuevo genero: '".$genero->cod."' exitosamente");
-		return Redirect::to('/genero');
+		Session::flash('message',"se creo un nuevo roll: '".$roll->cod."' exitosamente");
+		return Redirect::to('/roll');
 		
 	}
 
 	/**
 	 * Display the specified resource.
-	 * GET /genero/{id}
+	 * GET /roll/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -68,7 +70,7 @@ class GeneroController extends Controller {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /genero/{id}/edit
+	 * GET /roll/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -76,14 +78,14 @@ class GeneroController extends Controller {
 	public function edit($id)
 	{
 		//
-		$genero =Genero::find($id);
-		return view('genero.edit',['genero'=>$genero]);
+		$roll =Roll::find($id);
+		return view('roll.edit',['roll'=>$roll]);
 
 	}
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /genero/{id}
+	 * PUT /roll/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -91,15 +93,15 @@ class GeneroController extends Controller {
 	public function update($id, Request $request)
 	{
 		//
-		Genero::where('cod',$id)->update(['nombre'=>$request->nombre]);
-		$genero =Genero::find($id);
-		Session::flash('message',"se edito el genero: '".$genero->cod."' exitosamente");
-		return Redirect::to('/genero');
+		Roll::where('cod',$id)->update(['nombre'=>$request->nombre]);
+		$roll =Roll::find($id);
+		Session::flash('message',"se edito el roll: '".$roll->cod."' exitosamente");
+		return Redirect::to('/roll');
 	}
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /genero/{id}
+	 * DELETE /roll/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -107,10 +109,10 @@ class GeneroController extends Controller {
 	public function destroy($id)
 	{
 		
-		Genero::where('cod',$id)->delete($id);
+		Roll::where('cod',$id)->delete($id);
 		
-		Session::flash('message',"se elimino el genero: '".$id."' exitosamente");
-		return Redirect::to('/genero');
+		Session::flash('message',"se elimino el roll: '".$id."' exitosamente");
+		return Redirect::to('/roll');
 	}
 
 }

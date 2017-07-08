@@ -2,18 +2,13 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Genero extends Model {
+class Roll extends Model {
 
-	protected $table = 'genero';
+	protected $table = 'roll';
 	protected $primaryKey = 'COD';
 	
 	protected $fillable = ['NOMBRE'];
  	public $timestamps = false;
-	
-	
-	public function prueba($id,$nombre){
 
-		
-	}
 
 }
