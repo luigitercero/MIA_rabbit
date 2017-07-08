@@ -2,13 +2,21 @@
 
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use App\Http\Requests\UsuarioCreateRequest;
 use App\Http\Requests\UsuarioUpdateRequest;
+=======
+use App\Usuario;
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
 use App\Genero;
 use App\Roll;
 use Session;
 use Redirect;
+<<<<<<< HEAD
 use App\User;
+=======
+
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
 class UsuarioController extends Controller {
 
 /**
@@ -17,6 +25,7 @@ class UsuarioController extends Controller {
 	 *
 	 * @return Response
 	 */
+<<<<<<< HEAD
 
 	public function __construct(){
 /*
@@ -25,11 +34,17 @@ class UsuarioController extends Controller {
 */
 	}
 
+=======
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
 	public function index()
 	{
 		//
 
+<<<<<<< HEAD
 		$usuario = User::All();
+=======
+		$usuario = Usuario::All();
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
 		return view('usuario.index',compact('usuario'));
 	}
 
@@ -52,6 +67,7 @@ class UsuarioController extends Controller {
 	 *
 	 * @return Response
 	 */
+<<<<<<< HEAD
 	public function store(UsuarioCreateRequest $request)
 	{
 		//;
@@ -62,15 +78,34 @@ class UsuarioController extends Controller {
 		$usuario ->name= $request->nombre;
 		$usuario ->email=$request->correo;
 		$usuario ->password=$request->pass;
+=======
+	public function store(Request $request)
+	{
+		//
+		$usuario = new Usuario;
+		$usuario->nombre = $request->nombre;
+		$usuario->PASS=$request->pass;
+		$usuario->correo =$request->correo;
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
 		$usuario->telefono =$request->telefono;
 		$usuario->FREGISTRO=$request->fregistro;
 		$usuario->direccion=$request->direccion;
 		$usuario->nacimiento = $request->nacimiento;
 		$usuario->Roll_cod =$request->roll_cod;
 		$usuario->genero_cod = $request->genero_cod;
+<<<<<<< HEAD
 	
 		$usuario->save();
 		Session::flash('message',"se creo un nuevo usuario: '".$usuario->name."' exitosamente");
+=======
+		$usuario->save();
+		/*
+	\App\Usuario::create([
+		'NOMBRE'=>$request['name']
+		]);
+		*/
+		Session::flash('message',"se creo un nuevo usuario: '".$usuario->nombre."' exitosamente");
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
 		return Redirect::to('/usuario');
 		
 	}
@@ -99,7 +134,11 @@ class UsuarioController extends Controller {
 		//
 			$genero = Genero::All();
 		$roll = Roll::All();
+<<<<<<< HEAD
 		$usuario =user::find($id);
+=======
+		$usuario =Usuario::find($id);
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
 		return view('usuario.edit',['usuario'=>$usuario],compact('genero','roll'));
 
 	}
@@ -111,12 +150,21 @@ class UsuarioController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
+<<<<<<< HEAD
 	public function update($id, UsuarioUpdateRequest $request)
 	{
 		//
 		User::where('id',$id)->update(['name'=>$request->nombre,
 		'password' => $request->pass,
         'email' => $request->correo,
+=======
+	public function update($id, Request $request)
+	{
+		//
+		Usuario::where('id',$id)->update(['nombre'=>$request->nombre,
+		'PASS' => $request->pass,
+        'correo' => $request->correo,
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
         'telefono' => $request->telefono,
         'FREGISTRO' => $request->fregistro,
         'direccion' => $request->direccion,

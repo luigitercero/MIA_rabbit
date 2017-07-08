@@ -1,20 +1,35 @@
 
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
+<<<<<<< HEAD
     {!! Form::label('name', 'Nombre', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         <p>
         {!! Form::text('name', null, ['class' => 'form-control']) !!}
         {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+=======
+    {!! Form::label('nombre', 'nombre', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        <p>
+        {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+        {!! $errors->first('nombre', '<p class="help-block">:message</p>') !!}
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
         </p>
     </div>
 </div>
 
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
+<<<<<<< HEAD
     {!! Form::label('password', 'Clave', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         <p>
       
         <input class = 'form-control' name = "password" id = "pass" type="password">
+=======
+    {!! Form::label('password', 'password', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        <p>
+        <input class = 'form-control' name = "pass" id = "pass" type="password" value = {{$usuario->pass}}>
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
         {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
         </p>
     </div>
@@ -22,12 +37,20 @@
 
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
 <div>
+<<<<<<< HEAD
     {!! Form::label('correo', 'Correo', ['class' => 'col-md-4 control-label']) !!}
+=======
+    {!! Form::label('correo', 'correo', ['class' => 'col-md-4 control-label']) !!}
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
 </div>
     
     <div class="col-md-6">
         <p>
+<<<<<<< HEAD
         {!! Form::text('email', null, ['class' => 'form-control']) !!}
+=======
+        {!! Form::text('correo', null, ['class' => 'form-control']) !!}
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
         {!! $errors->first('correo', '<p class="help-block">:message</p>') !!}
         </p>
     </div>

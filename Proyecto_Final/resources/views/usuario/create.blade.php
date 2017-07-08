@@ -17,13 +17,22 @@
                             @include('usuario.form.form') 
                         </div>
                            
+<<<<<<< HEAD
+=======
+                        
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
                     <div class="form-group">
                     <div class="col-md-offset-4 col-md-4">
                     {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'aceptar', ['class' => 'btn btn-primary btn-s']) !!}
                     {!!Form::close()!!}
+<<<<<<< HEAD
                     
                  </div></div> 
                     @include('layouts.errors')
+=======
+                 </div></div> 
+                        
+>>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
                     </div>   
                 </div>
         </div>
