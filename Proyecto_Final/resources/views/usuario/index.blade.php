@@ -5,6 +5,7 @@
         <div class="row">
 @include('layouts.sidebar')
 @include('layouts.alert')
+@include('layouts.authError')
 
 <div class="col-md-9">
   <div class="panel panel-default">

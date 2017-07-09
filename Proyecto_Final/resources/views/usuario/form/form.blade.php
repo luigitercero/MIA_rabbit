@@ -3,8 +3,8 @@
     {!! Form::label('nombre', 'nombre', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
     <p>
-        {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
-        {!! $errors->first('nombre', '<p class="help-block">:message</p>') !!}
+        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+        {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
     </p>
     </div>
 </div>
@@ -13,7 +13,7 @@
     {!! Form::label('password', 'password', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
     <p>
-        {!!Form::password('pass', ['class' => 'form-control'])!!}
+        {!!Form::password('password', ['class' => 'form-control'])!!}
         <!--<input class = 'form-control' name = 'pass' type="password">-->
         {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
     </p>
@@ -27,8 +27,8 @@
     
     <div class="col-md-6">
     <p>
-        {!! Form::text('correo', null, ['class' => 'form-control']) !!}
-        {!! $errors->first('correo', '<p class="help-block">:message</p>') !!}
+        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+        {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
     </p>
     </div>
 </div>

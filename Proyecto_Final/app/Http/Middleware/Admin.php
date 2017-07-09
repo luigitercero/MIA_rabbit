@@ -24,9 +24,9 @@ public function __construct(Guard $auth){
      */
     public function handle($request, Closure $next)
     {
-        if($this->auth->user()->id !=0){
-            Session::flash('message','sin privilegio');
-            return redirect()->to('admin');
+        if($this->auth->user()->roll_cod !=1){
+            Session::flash('message-error','sin privilegio');
+            return redirect()->to('usuario');
         }
         return $next($request);
     }

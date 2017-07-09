@@ -21,6 +21,7 @@ class UsuarioController extends Controller {
  public function __construct()
     {
         $this->middleware('auth');
+		 $this->middleware('admin',['only'=>['edit','destroy']]);
     }
 
 	public function index()
@@ -62,9 +63,9 @@ class UsuarioController extends Controller {
 		//;
 		
 		$usuario = new User;
-		$usuario ->name= $request->nombre;
-		$usuario ->email=$request->correo;
-		$usuario ->password=$request->pass;
+		$usuario ->name= $request->name;
+		$usuario ->email=$request->email;
+		$usuario ->password=$request->password;
 		$usuario->telefono =$request->telefono;
 		$usuario->FREGISTRO=$request->fregistro;
 		$usuario->direccion=$request->direccion;
@@ -118,11 +119,17 @@ class UsuarioController extends Controller {
 	public function update($id, UsuarioUpdateRequest $request)
 	{
 		//
-
-
-		$user = User::find($id);
-		$user -> fill($request->all());
-		$user -> save();
+		$usuario = User::find($id);
+		$usuario ->name= $request->name;
+		$usuario ->email=$request->email;
+		$usuario ->password=$request->password;
+		$usuario->telefono =$request->telefono;
+		$usuario->FREGISTRO=$request->fregistro;
+		$usuario->direccion=$request->direccion;
+		$usuario->nacimiento = $request->nacimiento;
+		$usuario->Roll_cod =$request->roll_cod;
+		$usuario->genero_cod = $request->genero_cod;
+		$usuario -> save();
 		
 		Session::flash('message',"se edito el usuario: '"."' exitosamente");
 		return Redirect::to('/usuario');
@@ -141,6 +148,5 @@ class UsuarioController extends Controller {
 		Session::flash('message',"se elimino el usuario: '".$id."' exitosamente");
 		return Redirect::to('/usuario');
 	}
-
 
 }
