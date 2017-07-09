@@ -34,15 +34,9 @@
               @foreach($usuario as $usuarios)
               <tr>
                 <td>{{$usuarios->id}}</td>
-<<<<<<< HEAD
                 <td>{{$usuarios->name}}</td>
                 <td>{{$usuarios->password}}</td>  
                 <td>{{$usuarios->email}}</td>
-=======
-                <td>{{$usuarios->nombre}}</td>
-                <td>{{$usuarios->pass}}</td>  
-                <td>{{$usuarios->correo}}</td>
->>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
                 <td>{{$usuarios->telefono}}</td>                
                 <td>{{$usuarios->fregistro}}</td>
                 <td>{{$usuarios->direccion}}</td>

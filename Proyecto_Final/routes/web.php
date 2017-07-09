@@ -14,14 +14,12 @@
 Route::get('/', function () {
     return view('master');
 });
-<<<<<<< HEAD
+Route::get('usuario/up', 'UsuarioController@prueba');
 Route::resource('usuario', 'UsuarioController'); //index, create,show, delete,store,edit
-=======
-Route::resource('usuario', 'UsuarioController');
->>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
+
 Route::resource('roll', 'RollController');
 Route::resource('genero', 'GeneroController');
-Auth::routes();
+
 Route::resource('log','LogController');
 Route::resource('admin/posts', 'Admin\\PostsController');
 Route::get('logout','LogController@logout');

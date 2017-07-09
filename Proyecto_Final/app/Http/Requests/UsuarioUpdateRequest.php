@@ -13,7 +13,7 @@ class UsuarioUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,15 +24,8 @@ class UsuarioUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
-            
-            'email' => 'required|email|unique:users',
-            'telefono'=> 'required|numeric',
-            'nacimiento'=> 'required',
-            'fregistro'=> 'required',
-            'direccion'=> 'required',
-            'roll_cod'=> 'required',
-            'genero_cod'=> 'required'  
+           
+        
         ];
     }
 }

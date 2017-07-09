@@ -13,13 +13,8 @@
     {!! Form::label('password', 'password', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
     <p>
-<<<<<<< HEAD
         {!!Form::password('pass', ['class' => 'form-control'])!!}
         <!--<input class = 'form-control' name = 'pass' type="password">-->
-=======
-        
-        <input class = 'form-control' name = 'pass' type="password">
->>>>>>> 23e5f9801dece8d6f572dd0939ec5450d5b811ca
         {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
     </p>
     </div>
