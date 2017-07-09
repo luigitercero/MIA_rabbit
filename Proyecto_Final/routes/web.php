@@ -23,7 +23,7 @@ Route::resource('genero', 'GeneroController');
 Route::resource('log','LogController');
 Route::resource('admin/posts', 'Admin\\PostsController');
 Route::get('logout','LogController@logout');
-
+Route::resource('publicidad','PublicidadController');
 
 Auth::routes();
 
