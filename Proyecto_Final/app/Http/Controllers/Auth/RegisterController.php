@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Genero;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -33,7 +34,8 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('adminlte::auth.register');
+        $genero = Genero::All();
+        return view('auth.register',compact('genero'));
     }
 
     /**
@@ -66,7 +68,7 @@ class RegisterController extends Controller
             'username' => 'sometimes|required|max:255|unique:users',
             'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'terms'    => 'required',
+            
         ]);
     }
 
@@ -82,6 +84,11 @@ class RegisterController extends Controller
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
+            'TELEFONO' => $data['telefono'],
+            'DIRECCION' => $data['direccion'],
+            'NACIMIENTO' => $data['nacimiento'],
+            'ROLL_COD' => 3,
+             'GENERO_COD' =>  $data['genero_cod'],
         ];
         if (config('auth.providers.users.field','email') === 'username' && isset($data['username'])) {
             $fields['username'] = $data['username'];

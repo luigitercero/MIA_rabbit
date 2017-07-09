@@ -19,7 +19,7 @@
             <thead>
               <th>id</th>
               <th>Nombre</th>
-              <th>Password</th>
+              <!--<th>Password</th>-->
               <th>correo</th>
               <th>Telefono</th>
               
@@ -36,10 +36,10 @@
               <tr>
                 <td>{{$usuarios->id}}</td>
                 <td>{{$usuarios->name}}</td>
-                <td>{{$usuarios->password}}</td>  
+                <!--<td>{{$usuarios->password}}</td>-->  
                 <td>{{$usuarios->email}}</td>
                 <td>{{$usuarios->telefono}}</td>                
-                <td>{{$usuarios->fregistro}}</td>
+                <td>{{$usuarios->created_at}}</td>
                 <td>{{$usuarios->direccion}}</td>
                 <td>{{$usuarios->roll_cod}}</td>
                 <td>{{$usuarios->genero_cod}}</td>

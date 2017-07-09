@@ -59,7 +59,7 @@
 	 <input name="nacimiento" type="date"/>
      {!! $errors->first('nacimiento', '<p class="help-block">:message</p>') !!}
 </form>
--->
+
 </div>
 
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
@@ -67,10 +67,10 @@
     <div class="col-md-6">
         <p>
         <input class = 'form-control' id="fregistro" name="fregistro" type="date" value= {{$usuario->fregistro}} />   
-        {!! $errors->first('Date', '<p class="help-block">:message</p>') !!}
+        {!! $errors->first('fregistro', '<p class="help-block">:message</p>') !!}
         </p>
     </div>
-</div>
+</div>-->
 
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
     {!! Form::label('direccion', 'direccion', ['class' => 'col-md-4 control-label']) !!}
@@ -88,7 +88,7 @@
     <div class="col-md-6">
         <p>
             <input  class = 'form-control' id="nacimiento" name="nacimiento" type="date" value= {{$usuario->nacimiento}} />   
-            {!! $errors->first('Date', '<p class="help-block">:message</p>') !!}
+            {!! $errors->first('nacimiento', '<p class="help-block">:message</p>') !!}
         </p>
     </div>
 </div>

@@ -30,7 +30,7 @@ class UsuarioCreateRequest extends FormRequest
             'email' => 'required|email|unique:users',
             'telefono'=> 'required|numeric',
             'nacimiento'=> 'required',
-            'fregistro'=> 'required',
+            //'fregistro'=> 'required',
             'direccion'=> 'required',
             'roll_cod'=> 'required',
             'genero_cod'=> 'required'            

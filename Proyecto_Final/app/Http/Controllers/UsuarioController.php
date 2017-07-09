@@ -67,7 +67,7 @@ class UsuarioController extends Controller {
 		$usuario ->email=$request->email;
 		$usuario ->password=$request->password;
 		$usuario->telefono =$request->telefono;
-		$usuario->FREGISTRO=$request->fregistro;
+		//$usuario->FREGISTRO=$request->fregistro;
 		$usuario->direccion=$request->direccion;
 		$usuario->nacimiento = $request->nacimiento;
 		$usuario->Roll_cod =$request->roll_cod;
@@ -124,7 +124,7 @@ class UsuarioController extends Controller {
 		$usuario ->email=$request->email;
 		$usuario ->password=$request->password;
 		$usuario->telefono =$request->telefono;
-		$usuario->FREGISTRO=$request->fregistro;
+		//$usuario->FREGISTRO=$request->fregistro;
 		$usuario->direccion=$request->direccion;
 		$usuario->nacimiento = $request->nacimiento;
 		$usuario->Roll_cod =$request->roll_cod;
