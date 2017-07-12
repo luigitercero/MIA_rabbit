@@ -99,6 +99,10 @@
         <p>
             <select name="roll_cod" id = "roll_cod" class="form-control">
               @foreach($roll as $rolls)
+              @if($rolls->cod < Auth::user()->roll_cod)
+              
+              @continue
+              @endif
               @if($rolls->cod == $usuario->roll_cod)
               <option value= {{$rolls->cod}} selected >{{$rolls->nombre}}</option>
               @else

@@ -1,16 +1,13 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Http\Request;
-use App\Http\Requests\UsuarioCreateRequest;
-use App\Http\Requests\UsuarioUpdateRequest;
 use App\Genero;
 use App\Roll;
 use Session;
 use Redirect;
 use App\User;
-class UsuarioController extends Controller {
-
+use App\Http\Requests\UsuarioUpdateRequest;
+class PerfilController extends Controller {
 /**
 	 * Display a listing of the resource.
 	 * GET /usuario
@@ -21,7 +18,7 @@ class UsuarioController extends Controller {
  public function __construct()
     {
         $this->middleware('auth');
-		 $this->middleware('admin',['except'=>['perfil','update']]);
+	
     }
 
 
@@ -32,18 +29,17 @@ public function perfil($id)
 		$roll = Roll::All();
 		$usuario =user::find($id);		
 		return view('usuario.perfil',['usuario'=>$usuario],compact('genero','roll'));
-		}else{
+	}else{
 
 			return Redirect::to('/home');
-		}
+		}	
 	}	
 
 	public function index()
 	{
 		//
 		
-		$usuario = User::All();
-		return view('usuario.index',compact('usuario'));
+		return Redirect::to('/home');
 	}
 	public function prueba()
 	{
@@ -103,6 +99,7 @@ public function perfil($id)
 	public function show($id)
 	{
 		//
+		return Redirect::to('/home');
 	}
 
 	/**
@@ -115,10 +112,16 @@ public function perfil($id)
 	public function edit($id)
 	{
 		//
-			$genero = Genero::All();
+	
+		if ($id == \Auth::user()->id){
+		$genero = Genero::All();
 		$roll = Roll::All();
-		$usuario =user::find($id);
-		return view('usuario.edit',['usuario'=>$usuario],compact('genero','roll'));
+		$usuario =user::find($id);		
+		return view('usuario.perfil',['usuario'=>$usuario],compact('genero','roll'));
+	}else{
+
+			return Redirect::to('/home');
+		}	
 
 	}
 
@@ -146,7 +149,7 @@ public function perfil($id)
 		$usuario -> save();
 		
 		Session::flash('message',"se edito el usuario: '"."' exitosamente");
-		return Redirect::to('/usuario');
+		return Redirect::to('/home');
 	}
 
 	
@@ -160,9 +163,9 @@ public function perfil($id)
 	 */
 	public function destroy($id)
 	{
-		Usuario::where('id',$id)->delete($id);
-		Session::flash('message',"se elimino el usuario: '".$id."' exitosamente");
-		return Redirect::to('/usuario');
+		
+		return Redirect::to('/home');
 	}
+
 
 }

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'RabbitClound') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{"Rabbitcloud"}}
                     </a>
                 </div>
 
@@ -59,6 +59,15 @@
                                         </a>
                                         
                                     </li>
+                                    <li>
+                                        <a href="{{ url('/perfil/' . Auth::user()->id . '/edit/') }}"
+                                            >
+                                            perfil
+                                        </a>
+                                        
+                                    </li>
+
+                                    
                                 </ul>
                             </li>
                         @endif

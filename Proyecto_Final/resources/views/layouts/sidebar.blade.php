@@ -7,14 +7,22 @@
         <div class="panel-body">
             <ul class="nav" role="tablist">
                 <li role="presentation">
+                    @if(Auth::user()->roll_cod != 3)
                     <a href="{{ url('/roll') }}">
-                        roll
+                        roll 
                     </a>
                     <a href="{{ url('/genero') }}">
                         genero
                     </a>
                     <a href="{{ url('/usuario') }}">
                         usuario
+                    </a>
+                    <a href="{{ url('/publicidad') }}">
+                        publicidad
+                    </a>
+                    @endif
+                    <a href="{{ url('/home') }}">
+                        sistema de Archivos
                     </a>
                 </li>
             </ul>

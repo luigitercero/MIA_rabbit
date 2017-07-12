@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/','InicioController@index'
+
+/*function () {
     return view('master');
-});
-Route::get('usuario/up', 'UsuarioController@prueba');
+}*/);
+Route::resource('perfil', 'PerfilController');
 Route::resource('usuario', 'UsuarioController'); //index, create,show, delete,store,edit
 
 Route::resource('roll', 'RollController');
@@ -28,7 +30,7 @@ Route::resource('publicidad','PublicidadController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::resource('sistema', 'sistemaController');
 
 
 

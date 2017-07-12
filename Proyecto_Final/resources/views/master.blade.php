@@ -9,12 +9,15 @@
     <div class="row">
  
       <div class="center">
-                  @include('layouts.log')        
+                        @include ('publicidad.home') 
+                         
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+
 
 
 
