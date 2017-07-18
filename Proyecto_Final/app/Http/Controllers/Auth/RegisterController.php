@@ -7,6 +7,10 @@ use App\Genero;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderShipped;
+use Redirect;
+use Session;
 
 /**
  * Class RegisterController
@@ -80,6 +84,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
+        
         $fields = [
             'name'     => $data['name'],
             'email'    => $data['email'],
@@ -93,6 +99,16 @@ class RegisterController extends Controller
         if (config('auth.providers.users.field','email') === 'username' && isset($data['username'])) {
             $fields['username'] = $data['username'];
         }
-        return User::create($fields);
+         
+         
+         Mail::send('email.contact',['data'=>$data], function ($message) use($data){
+           //  $message->from('luigitercero3@gmail.com', 'Luis Azurdia');
+             $message->to( $data['email'],'Luis Azurdia');
+             //$message->to( 'luigitercero3@gmail.com','Luis Azurdia');
+             $message->subject('validar Contrasenia');       
+         });
+         
+         Session::flash('mesaje','mensaje fue enviado a su correo');
+         return User::create($fields);
     }
 }

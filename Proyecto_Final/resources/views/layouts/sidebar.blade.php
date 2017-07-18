@@ -21,7 +21,7 @@
                         publicidad
                     </a>
                     @endif
-                    <a href="{{ url('/home') }}">
+                    <a href="{{ url('/sistema') }}">
                         sistema de Archivos
                     </a>
                 </li>

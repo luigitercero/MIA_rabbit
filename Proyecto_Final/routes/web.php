@@ -21,6 +21,7 @@ Route::resource('usuario', 'UsuarioController'); //index, create,show, delete,st
 
 Route::resource('roll', 'RollController');
 Route::resource('genero', 'GeneroController');
+Route::resource('mail', 'MailController');
 
 Route::resource('log','LogController');
 Route::resource('admin/posts', 'Admin\\PostsController');

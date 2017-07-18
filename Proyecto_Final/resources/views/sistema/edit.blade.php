@@ -2,10 +2,10 @@
 @section('content')
 <div class="container">
         <div class="row">
-
+@include('layouts.sidebar')
 @include('layouts.alert')
 @include('layouts.authError')
-
+@include('sistema.form.script')
 <div class="col-md-9">
   <div class="panel panel-default">
     <div class="panel-heading">Usuario</div>
@@ -14,52 +14,32 @@
       <i class="fa fa-plus" aria-hidden="true"></i> agregar nuevo
     </a>
 
-       <?php
+<?php
       function BuscarHijo($id,$directorio){
-        $salida = "<tr>";
+        echo "<ul>";
         $tamanio = count($directorio);
         for($cont=0;$cont<$tamanio;$cont++){
-            if ($directorio[$cont]->padre == $id){
-               
-           $salida= $salida."<td>".$directorio[$cont]->nombre;
-            $salida =$salida."</td>";
-            }
-            $salida =$salida. BuscarHijo($directorio[$cont]->id,$directorio);
+            if ($directorio[$cont]->padre == $id){ 
+              echo "<li>";
+              //echo "<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">";
+              echo "<img src=\"".asset('/images/book.png')."\"width=\"24\" height=\"24\" alt=\"icon\">";
+              echo "   ".$directorio[$cont]->nombre;              
+              BuscarHijo($directorio[$cont]->id,$directorio);
+              //echo "<\li>";
+            }   
         }
-         return $salida."</tr>";
-        }          
+         echo "</ul>";
+      }           
 ?> 
 
- <div class="table-responsive">
-        <table class="table table-borderless">
-            <thead>
-             
-             
-              <th>Nombre</th>
-            </thead>    
-            <tbody>
-              @foreach($directorio as $directorios)
-              <tr>    
-                  @if($directorio[count($directorio)-1]->id!=$directorios->id)
-                  @for($i=$directorio[count($directorio)-1]->id; $i<$directorios->padre;$i++)
-                  <th width = "10" height="50">-</th>
-                  @endfor
-                  
-                  <td>{{$directorios->nombre}}</td>
-            
-                @endif              
-              </tr>
-              @endforeach
-
-              
-            </tbody> 
-          </table> 
-  </div>
-</div>  
+{{BuscarHijo($directorio[count($directorio)-1]->id,$directorio)}}
+  
 </div>
 </div>  
-
+</div>
+</div>
 @endsection
+
 
 
 

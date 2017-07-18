@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
         <div class="row">
-
+@include('layouts.sidebar')
 @include('layouts.alert')
 @include('layouts.authError')
 
